@@ -9,7 +9,7 @@ const gameBoard = (() => {
 
     const clearGameBoard = () => {
         
-        gameBoardArray = [];
+        gameBoardArray = ['', '', '', '', '', '', '', '', ''];
     };
 
     // to add the player's mark in the gameBoardArray
@@ -144,6 +144,9 @@ const displayController = (() => {
 
         player1.clearPlayer();
         player2.clearPlayer();
+
+        gameBoard.clearGameBoard();
+        console.log(gameBoard.gameBoardArray);
         
         gameFinished = false;
         gameStarted = false;
