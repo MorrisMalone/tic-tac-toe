@@ -1,19 +1,23 @@
-
-// create the gameBoard Object with a module
-
+"use strict";
+/* create the gameBoard Object with a module
+*/
 const gameBoard = (() => {
+
     let gameBoardDisplay = document.getElementById('game');
 
-    let gameBoardArray = ['', '', '', '', '', '', '', '', ''];
+    let gameBoardArray = ['', '', '', '', '', '', '', '', '']; // the array is looped over to create the html
 
     const clearGameBoard = () => {
-        gameBoardArray = ['', '', '', '', '', '', '', '', ''];
+        
+        gameBoardArray = [];
     };
 
+    // to add the player's mark in the gameBoardArray
     const update = (position, currentPlayer) => {
         gameBoardArray.splice(position, 1, currentPlayer.mark)
     };
 
+    // create the html to be displayed on the webpage
     const createGameBoard = () => {
         let gridGameBoard = '';
 
@@ -34,7 +38,7 @@ const gameBoard = (() => {
 })();
 
 // create the players with a factory
-
+// we keep track of the player's moves
 const Player = (name, mark) => {
 
     let spotPlayed = [];
@@ -43,7 +47,7 @@ const Player = (name, mark) => {
         spotPlayed = [];
     };
 
-    const play = (id) => {
+    const play = (id) => { // keep track of the played spots by the player
 
         spotPlayed.push(id);
     };
@@ -51,14 +55,14 @@ const Player = (name, mark) => {
     return { name, mark, spotPlayed, play, clearPlayer };
 };
 
-// Tests
+// Creation of two players with names
 
 
 let player1 = Player('Pierre', 'X');
 let player2 = Player('Johan', 'O');
 
 // create the displayController with a module
-
+// this is going to control the all game
 const displayController = (() => {
     let currentPlayer = player1;
     let winner = null;
@@ -66,6 +70,9 @@ const displayController = (() => {
     let gameFinished = false;
     let gameStarted = false;
 
+    // check for a winner by checking each turn if the current player made a winning move
+    // by checking the 'spotPlayed' against the winning combinations. If any winning combination
+    // is contained in the player's 'spotPlayed' then he is the winner
     const checkForAWinner = () => {
 
         let winningCombinations = [['0', '1', '2'], ['3', '4', '5'], ['6', '7', '8'], ['0', '3', '6'], ['1', '4', '7'], ['2', '5', '8'], ['0', '4', '8'], ['2', '4', '6']];
@@ -74,14 +81,14 @@ const displayController = (() => {
             if (winningCombinations[i].every(elem => currentPlayer.spotPlayed.indexOf(elem) > -1)) {
 
                 winner = currentPlayer;
-                winningLine = winningCombinations[i];
+                winningLine = winningCombinations[i]; // return the winning line to then hilight it
                 return true;
             }
 
         }
 
     };
-
+    // to change from one player to another
     const setPlayer = () => {
 
         if (gameStarted) {
@@ -91,6 +98,8 @@ const displayController = (() => {
         } else return (currentPlayer, gameStarted = true);
     };
 
+    // to add the eventListeners only to the spots that are not played yet
+    // thus a player can't play on an already played spot
     const printGame = () => {
 
         gameBoard.createGameBoard();
@@ -105,39 +114,37 @@ const displayController = (() => {
     }
 
     const playGame = (event) => {
+
         if (!gameFinished) {
-            setPlayer();
+            setPlayer(); // select current player
 
-            gameBoard.update(event.target.id, currentPlayer);
+            gameBoard.update(event.target.id, currentPlayer); // update of the gameBoard
 
-            currentPlayer.play(event.target.id);
+            currentPlayer.play(event.target.id); // keep track of this player's move
 
-            printGame();
+            printGame(); // display the game on the webpage
 
-            if (checkForAWinner()) {
+            if (checkForAWinner()) { // check for a winner each turn
 
                 for (let i = 0; i < winningLine.length; i++) {
 
-                    document.getElementById(winningLine[i]).classList.toggle('winningLine');
+                    document.getElementById(winningLine[i]).classList.toggle('winningLine'); // put the background of the winning line in red
                 }
 
-                document.getElementById('result').textContent = `${currentPlayer.name} WON!`;
+                document.getElementById('result').textContent = `${currentPlayer.name} WON!`; // congratulate the winner
 
                 gameFinished = true;
             };
         };
     };
 
+    // This doesn't work
+    // it doesn't update anything when I call it from the console.
     const clearGame = () => {
 
         player1.clearPlayer();
         player2.clearPlayer();
-        player1.spotPlayed = [];
-        console.log(player1.spotPlayed);
-        player1.play('5');
-        console.log(player1.spotPlayed);
         
-        gameBoard.clearGameBoard();
         gameFinished = false;
         gameStarted = false;
         winningLine = null;
