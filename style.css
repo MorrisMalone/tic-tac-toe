@@ -1,0 +1,77 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid green;
+}
+.game-board {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    width: 200px;
+    height: 200px;
+}
+
+.playBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.winningLine {
+    background-color: red;
+}
+
+[id='0'] {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+[id='1'] {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+[id='2'] {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+[id='3'] {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+[id='4'] {
+    border: 1px solid black; 
+}
+
+[id='5'] {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+[id='6'] {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+[id='7'] {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+[id='8'] {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
