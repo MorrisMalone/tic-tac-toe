@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -15,7 +15,11 @@
         <div id='game' class="game-board"></div>
     </div>
     <div id='result'></div>
-    <button onclick="displayController.clearGame()">clear</button>
+    <button onclick="displayController.clearGame()">New Game</button>
+    <div>
+        <input id='player1' type='text' name='player1' placeholder="Player1" value='Player1'><button id='addPlayer1' onclick='addPlayer()'>Add</button>
+        <input id='player2' type='text' name='player2' placeholder='Player2' value='Player2'><button id="addPlayer2" onclick='addPlayer()'>Add</button>
+    </div>
 </body>
 
 </html>
