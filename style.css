@@ -1,77 +1,202 @@
+
+:root {
+    --width: 100px;
+    --fontSize: 60px;
+    --bgColor: #173e43
+    ;
+}
+
 html, body {
     padding: 0;
     margin: 0;
+    background-color: var(--bgColor);
+    font-family: 'Jua', sans-serif;
 }
 
-.container {
-
+#result {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    border: 1px solid green;
+    min-height: 20vh;
+    color: #dddfd4;
+    font-size: 30px;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-button {
+    padding: 20px;
+}
+
 .game-board {
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
-    width: 200px;
-    height: 200px;
+    min-width: 200px;
+    min-height: 200px;
+    width: var(--width);
+    height: var(--width);
 }
 
 .playBox {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: var(--fontSize);
+    background-color: #3fb0ac;
+    color: #dddfd4;
+}
+
+.notPlayed:hover {
+    background-color: #fae596;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.no-display {
+    display: none;
+}
+
+#startGame {
+    width: 80px;
+    height: 30px;
+    font-family: 'Jua', sans-serif;
+    color: #dddfd4;
+    font-size: 20px;
+}
+
+.container-name {
+    display: flex;
+    flex-direction: column;
+}
+
+#container-player1 {
+    height: 30px;
+    width: 120px;
+    margin: 15px 0;
+}
+
+#container-player2 {
+    height: 30px;
+    width: 120px;
+}
+
+input {
+    height: 30px;
+    width: 120px;
+}
+
+#addPlayer1 {
+    padding-left: 10px;
+    margin: 20px;
+    color: #dddfd4;
+    background-color: var(--bgColor);
+}
+
+button {
+    background-color: var(--bgColor);
+    border: none;
+}
+
+button:focus { outline: none; }
+
+button:hover {
+    opacity: 0.8;
+}
+
+input {
+    background-color: #dddfd4;
+    color: var(--bgColor);
+    border: none;
+    border-radius: 3px;
+    font-size: 18px;
+}
+
+#addPlayer2 {
+    padding-left: 10px;
+    margin: 20px;
+    color: #dddfd4;
+    background-color: var(--bgColor);
+}
+
+#player1 {
+    margin: 20px;
+}
+
+#player2 {
+    margin: 20px;
+}
+
+.flexy {
+    width: var(--width);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #dddfd4;
+    font-size: 25px;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .winningLine {
-    background-color: red;
+    background-color: #fae596;
+    color: #AA9133;
 }
 
 [id='0'] {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid var(--bgColor);
+    border-bottom: 1px solid var(--bgColor);
 }
 
 [id='1'] {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
+    border-right: 1px solid var(--bgColor);
+    border-bottom: 1px solid var(--bgColor);
+    border-left: 1px solid var(--bgColor);
 }
 
 [id='2'] {
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
+    border-bottom: 1px solid var(--bgColor);
+    border-left: 1px solid var(--bgColor);
 }
 
 [id='3'] {
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid var(--bgColor);
+    border-right: 1px solid var(--bgColor);
+    border-bottom: 1px solid var(--bgColor);
 }
 
 [id='4'] {
-    border: 1px solid black; 
+    border: 1px solid var(--bgColor);
 }
 
 [id='5'] {
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid var(--bgColor);
+    border-left: 1px solid var(--bgColor);
+    border-bottom: 1px solid var(--bgColor);
 }
 
 [id='6'] {
-    border-right: 1px solid black;
-    border-top: 1px solid black;
+    border-right: 1px solid var(--bgColor);
+    border-top: 1px solid var(--bgColor);
 }
 
 [id='7'] {
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
+    border-right: 1px solid var(--bgColor);
+    border-top: 1px solid var(--bgColor);
+    border-left: 1px solid var(--bgColor);
 }
 
 [id='8'] {
-    border-left: 1px solid black;
-    border-top: 1px solid black;
+    border-left: 1px solid var(--bgColor);
+    border-top: 1px solid var(--bgColor);
 }
