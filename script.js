@@ -95,6 +95,8 @@ const displayController = (() => {
         } else {
             document.getElementById('addPlayer1').classList.toggle('no-display');
             document.getElementById('addPlayer2').classList.toggle('no-display');
+
+            document.getElementById('names-display').style.opacity = '0';
             return (currentPlayer = player1, gameStarted = true);
         };
     };
@@ -171,8 +173,13 @@ const displayController = (() => {
         document.getElementById('startGame').classList.add('hidden');
         document.getElementById('startGame').style.color = '#dddfd4';
 
+        document.getElementById('names-display').classList.toggle('no-display');
+
         document.getElementById('addPlayer1').classList.toggle('no-display');
         document.getElementById('addPlayer2').classList.toggle('no-display');
+
+        document.getElementById('names-display').style.opacity = '1';
+
         printGame();
     };
 

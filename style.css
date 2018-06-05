@@ -17,7 +17,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 20vh;
+    min-height: 15vh;
     color: #dddfd4;
     font-size: 30px;
 }
@@ -30,7 +30,7 @@ html, body {
 }
 
 #start-button {
-    padding: 20px;
+    padding: 15px 0 0 10px;
 }
 
 .game-board {
@@ -126,10 +126,6 @@ input {
 }
 
 #player1 {
-    margin: 20px;
-}
-
-#player2 {
     margin: 20px;
 }
 
